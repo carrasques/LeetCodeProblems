@@ -64,10 +64,11 @@ while(node!=null) {
 
 return head;
 ```
-Depois da submissão, o primeiro erro:
+Depois da submissão, o primeiro erro:  
+
 ![Primeira falha](Images/FirstFail.png)
 
-Esta primeira abordagem falha nos casos em que existem mais do que um elemento repetido, como é possível ver. 
+Esta primeira abordagem falha nos casos em que existem mais do que um elemento repetido, como é possível ver.
 
 
 Para tentar explicar o motivo pelo qual o erro ocorre, pode-se usar o caso teste em que a falha foi detectada.
