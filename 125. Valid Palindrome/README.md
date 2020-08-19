@@ -69,3 +69,59 @@ return true;
 A primeira submissão:
 
 ![Primeira submissão](Images/FirstSubmission.png)
+
+Não ficando contente com os resultados da submissão decidi usar uma nova abordagem: fazer o teste de palíndromo sem a "limpeza" da string.
+
+Se os índices *begin* e *end* consistirem em caracteres alfanuméricos é feita a sua comparação. Caso contrário, o caracter que não é alfanumérico é ignorado e o índice correspondente avança (begin++ ou end--).
+
+```
+while (begin<=end){
+  se forem os dois alfanuméricos:
+    testar para palindromo
+
+  else {
+    apenas avançar com o indice que não é alfanumérico
+  }
+}
+```
+
+O método para verificar se um caracter é um alfanumérico foi tirado do StackOverflow:
+
+```
+public boolean isAlphaNumeric(char c) {
+    return (c >= 'a' && c <= 'z') ||
+       (c >= 'A' && c <= 'Z') ||
+       (c >= '0' && c <= '9');
+}
+```
+
+O novo código da solução fica então:
+
+```
+int begin = 0;
+int end = s.length()-1;
+
+while(end>=begin) {
+    char beginChar = s.charAt(begin);
+    char endChar = s.charAt(end);
+
+    if(isAlphaNumeric(beginChar) && isAlphaNumeric(endChar)){
+        if(Character.toLowerCase(beginChar) != Character.toLowerCase(endChar))
+            return false;
+
+        begin++;
+        end--;
+    }
+
+    else {
+        begin += (isAlphaNumeric(beginChar)) ? 0 : 1;
+        end -= (isAlphaNumeric(endChar)) ? 0: 1;
+    }
+}
+
+return true;
+```
+
+Depois da submissão:
+
+![Segunda submissão](Images/FinalSubmission.png)
