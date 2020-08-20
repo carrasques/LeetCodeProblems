@@ -1,0 +1,46 @@
+class Solution {
+    public boolean isValid(String s) {
+
+        Stack<Character> stack = new Stack<Character>();
+
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if(isOpenBracket(c))
+                stack.push(c);
+
+            else {
+                if(stack.empty()) return false;
+
+                char peek = stack.peek();
+                if( c == getReverse(peek))
+                    stack.pop();
+                else return false;
+            }
+        }
+
+        return stack.empty();
+
+    }
+
+    boolean isOpenBracket(char c) {
+        return (c == '(' || c == '{' || c == '[');
+    }
+
+    char getReverse(char c) {
+        char result = '\0';
+
+        switch(c) {
+            case '(':
+                result = ')';
+                break;
+            case '{':
+                result = '}';
+                break;
+            case '[':
+                result = ']';
+                break;
+        }
+
+        return result;
+    }
+}
