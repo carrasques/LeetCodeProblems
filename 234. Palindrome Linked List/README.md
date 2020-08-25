@@ -108,3 +108,5 @@ return (inverse.equals(normal));
 ```
 
 ![Primeira falha](Images/FirstFail.png)
+
+Comparar duas strings pode ser um processo custoso. Pelo que
